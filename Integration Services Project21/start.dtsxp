@@ -1,0 +1,207 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="PackagePart"
+  DTS:CreationDate="5/4/2019 8:23:58 PM"
+  DTS:CreationName="Microsoft.DTSPackagePart"
+  DTS:CreatorComputerName="DESKTOP-KSSU4F0"
+  DTS:CreatorName="DESKTOP-KSSU4F0\Test"
+  DTS:DTSID="{3DE3242A-E240-4678-9174-48544E9BE2AA}"
+  DTS:ExecutableType="Microsoft.DTSPackagePart"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="start"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{D80CE27D-9292-4BE7-85CB-507D9C2B8BDE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="PackagePart.ConnectionManagers[100.36.220.45,53000.MPSTGW.mdesta]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D6D04801-0645-4C61-8301-7E83D280A614}"
+      DTS:ObjectName="100.36.220.45,53000.MPSTGW.mdesta">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=100.36.220.45,53000;User ID=mdesta;Initial Catalog=MPSTGW;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+aRrXs5I0k6s294nsV9PFAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC6VKu6kfu5PWw5Nk1JpFSmpYoq9TipBQfuPSFjy3WOFAAAAAAOgAAAAAIAACAAAABM12Qajk0cXQolJs7bWZfJ/6MPZladdTlF9ZCS8a4/IRAAAACvz1HOzQW2X06Ak3tHI6rBQAAAAC2ryVAiMy34CCgvxRNrty3vdF8O+tQtV0iSPGbv5GjE38Zwo05D3FICHsgNEEReojESR8LaI/ftR7PYAYGp2LY</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="PackagePart\Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8D2E8EE3-9DB4-4D4C-9590-64366F0C89E4}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{CAAC6917-9F62-46F7-98B7-7D51D6D7CB5E}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackageID">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{FCF9606B-DE31-429E-8F49-1C1122E48559}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="PackageName">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{E690E9E8-9C59-4291-9D3F-E3A0898F2A37}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;Declare&#xA;    ,@[PackageID] = uniqueidentifier&#xA;     ,@[PackageName] = varchar(120)&#xA;     ,@[SourceName] varchar(500)&#xA;     ,@[StartTime] as datetime datetime2(7)&#xA;     ,@[Status] as varchar datetime2(7)&#xA;     ,@[RunDate] datetime2(7)&#xA;     ,@[RunBy]  as varchar(120)&#xA;Set&#xA;     ,@[PackageID] = ?&#xA;     ,@[PackageName] = ?&#xA;     ,@[SourceName] = 'Sharepoint'&#xA;     ,@[StartTime] = getdate()&#xA;     ,@[Status] = s&#xA;     ,@[RunDate] = getdate()&#xA;     ,@[RunBy] = Suser_Sname()&#xA;Insert into [SSIS_Log].[dbo].[PackageLog]&#xA;([PackageID]&#xA;     ,[PackageName]&#xA;     ,[SourceName]&#xA;     ,[StartTime]&#xA;     ,[Status]&#xA;     ,[RunDate]&#xA;     ,[RunBy])&#xA;select&#xA;     ,@[PackageID] &#xA;     ,@[PackageName] &#xA;     ,@[SourceName] &#xA;     ,@[StartTime] &#xA;     ,@[Status] &#xA;     ,@[RunDate] &#xA;     ,@[RunBy] &quot;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SSIS_log">
+          <DTS:VariableValue
+            DTS:DataType="8">Declare
+    ,@[PackageID] = uniqueidentifier
+     ,@[PackageName] = varchar(120)
+     ,@[SourceName] varchar(500)
+     ,@[StartTime] as datetime datetime2(7)
+     ,@[Status] as varchar datetime2(7)
+     ,@[RunDate] datetime2(7)
+     ,@[RunBy]  as varchar(120)
+Set
+     ,@[PackageID] = ?
+     ,@[PackageName] = ?
+     ,@[SourceName] = 'Sharepoint'
+     ,@[StartTime] = getdate()
+     ,@[Status] = s
+     ,@[RunDate] = getdate()
+     ,@[RunBy] = Suser_Sname()
+Insert into [SSIS_Log].[dbo].[PackageLog]
+([PackageID]
+     ,[PackageName]
+     ,[SourceName]
+     ,[StartTime]
+     ,[Status]
+     ,[RunDate]
+     ,[RunBy])
+select
+     ,@[PackageID] 
+     ,@[PackageName] 
+     ,@[SourceName] 
+     ,@[StartTime] 
+     ,@[Status] 
+     ,@[RunDate] 
+     ,@[RunBy] </DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{D9E2D242-AD2D-4CB5-B88E-27F97B58AF8F}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="start">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{DEF5202E-C883-4F69-AA28-57464970E2CE}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="start1">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{4D10EF72-8DCD-4A86-919C-502BEC19E868}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{5D49D77C-A9D6-4A30-92D7-43ACEA1186EA}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable1">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{84A398B2-EEDF-4B7C-A318-DF060C77018C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable2">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{47550D90-79CD-470A-BF79-0E7802A0D924}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="Variable3">
+          <DTS:VariableValue
+            DTS:DataType="3">0</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6D04801-0645-4C61-8301-7E83D280A614}"
+          SQLTask:SqlStmtSourceType="Variable"
+          SQLTask:SqlStatementSource="User::SSIS_log" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="System::PackageID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="72"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="120" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <PackagePart
+    design-time-name="PackagePart">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="PackagePart\Execute SQL Task"
+          TopLeft="179.076929645426,4.09696984496875" />
+      </GraphLayout>
+    </LayoutInfo>
+  </PackagePart>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
